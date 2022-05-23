@@ -1,9 +1,21 @@
 import React from 'react';
 import CustomLink from '../CustomLink';
 import logo from '../../logo.jpg';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { signOut } from 'firebase/auth';
+import Loading from '../Page/Loading';
 
 
 const Heder = () => {
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+   
+  };
+  if(loading){
+    return <Loading></Loading>
+  }
   return (
     <div className="navbar flex justify-between ">
     <div className="navbar-start">
@@ -41,7 +53,7 @@ const Heder = () => {
      <img src={logo} alt="" />
      </div>
     </div>
-    <div className="navbar-center hidden lg:flex">
+    <div className="navbar-center hidden lg:flex ">
       <ul className="menu menu-horizontal mr-14 ">
         <CustomLink className="mr-5" to={"/home"}>
           Home
@@ -63,11 +75,15 @@ const Heder = () => {
         </CustomLink>
         } */}
 
-       <CustomLink className="mr-5" to={"/login"}>
-          Login
-        </CustomLink>
+      
+{user ? <CustomLink onClick={logout} to={'/'}>LogOut</CustomLink> : <CustomLink className="mr-5" to={"/login"}>
+            Login
+          </CustomLink>}
+          <p className='ml-2 font-bold'>{user?.displayName}</p>
       </ul>
+   
     </div>
+    
   </div>
   );
 };
