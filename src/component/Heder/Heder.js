@@ -74,12 +74,12 @@ const Heder = () => {
           DashBoard
         </CustomLink>
         } */}
-
+ <p className='mr-2 font-bold'>{user?.displayName}</p>
       
 {user ? <CustomLink onClick={logout} to={'/'}>LogOut</CustomLink> : <CustomLink className="mr-5" to={"/login"}>
             Login
           </CustomLink>}
-          <p className='ml-2 font-bold'>{user?.displayName}</p>
+         
       </ul>
    
     </div>

@@ -26,7 +26,7 @@ const BussinessSummary = () => {
  
             <div>
                 <ThumbUpIcon className='text-green-400' width={100}></ThumbUpIcon>
-                <p className='font-bold text-2xl ml-4'><CountUp duration={20} end={650} />+</p>
+                <p className='font-bold text-2xl ml-4'><CountUp duration={10} end={650} />+</p>
                 <p className='font-bold text-green-400 ml-3'>FeedBacks</p>
             </div>
             
