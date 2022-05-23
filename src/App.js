@@ -6,6 +6,7 @@ import Heder from './component/Heder/Heder';
 import Home from './component/Home/Home';
 import Login from './component/Login/Login';
 import Register from './component/Login/Register';
+import NotFound from './component/Page/NotFound';
 import Review from './component/Review/Review';
 import Shop from './component/Shop/Shop';
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   );
