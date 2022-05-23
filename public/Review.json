@@ -1,0 +1,33 @@
+[
+    {
+        "id":1,
+        "name":"Amos Warner",
+       "img":"https://i.ibb.co/0ZwqX1T/irene-strong-v2a-Knj-Mb-P-k-unsplash.jpg",     
+   "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, inventore! Cumque temporibus fuga accusantium deleniti illo alias nostrum dicta nesciunt doloribus quod recusandae unde nihil voluptatum ullam maiores cum, nemo modi omnis dolore officia veritatis voluptatibus quis totam? Quidem repellendus possimus ipsam eaque similique porro, ab quasi enim consectetur illum."
+    },
+    {"id":2,
+        "name":"Antonio Maxwell",
+        "img":"https://i.ibb.co/kXTcL7v/robert-godwin-SPc-Fp-XIME6-M-unsplash.jpg",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, inventore! Cumque temporibus fuga accusantium deleniti illo alias nostrum dicta nesciunt doloribus quod recusandae unde nihil voluptatum ullam maiores cum, nemo modi omnis dolore officia veritatis voluptatibus quis totam? Quidem repellendus possimus ipsam eaque similique porro, ab quasi enim consectetur illum."
+    },
+    {"id":3,
+        "name":"Jonathon Cortez",
+        "img":"https://i.ibb.co/SRPyv04/julian-wan-WNo-Ln-Jo7t-S8-unsplash.jpg",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, inventore! Cumque temporibus fuga accusantium deleniti illo alias nostrum dicta nesciunt doloribus quod recusandae unde nihil voluptatum ullam maiores cum, nemo modi omnis dolore officia veritatis voluptatibus quis totam? Quidem repellendus possimus ipsam eaque similique porro, ab quasi enim consectetur illum."
+    },
+    {"id":4,
+        "name":"Gregg Moran",
+   
+   "img":"https://i.ibb.co/jT9G5SQ/salome-guruli-6-Gg-Cy-Nn-F6-Zs-unsplash.jpg",     "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, inventore! Cumque temporibus fuga accusantium deleniti illo alias nostrum dicta nesciunt doloribus quod recusandae unde nihil voluptatum ullam maiores cum, nemo modi omnis dolore officia veritatis voluptatibus quis totam? Quidem repellendus possimus ipsam eaque similique porro, ab quasi enim consectetur illum."
+    },
+    {"id":5,
+        "name":"Vivian Cunningham",
+        "img":"https://i.ibb.co/W0QPs5h/people3.png",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, inventore! Cumque temporibus fuga accusantium deleniti illo alias nostrum dicta nesciunt doloribus quod recusandae unde nihil voluptatum ullam maiores cum, nemo modi omnis dolore officia veritatis voluptatibus quis totam? Quidem repellendus possimus ipsam eaque similique porro, ab quasi enim consectetur illum."
+    },
+    {"id":6,
+        "name":"Troy Myers",
+    
+    "img":"https://i.ibb.co/vkQgbKV/people2.png",    "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, inventore! Cumque temporibus fuga accusantium deleniti illo alias nostrum dicta nesciunt doloribus quod recusandae unde nihil voluptatum ullam maiores cum, nemo modi omnis dolore officia veritatis voluptatibus quis totam? Quidem repellendus possimus ipsam eaque similique porro, ab quasi enim consectetur illum."
+    }
+]
