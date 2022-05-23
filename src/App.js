@@ -7,8 +7,11 @@ import Home from './component/Home/Home';
 import Login from './component/Login/Login';
 import Register from './component/Login/Register';
 import NotFound from './component/Page/NotFound';
+import ProductDetail from './component/Products/ProductDetail';
+
 import Review from './component/Review/Review';
 import Shop from './component/Shop/Shop';
+import Test from './test';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/productdetails/:id' element={<ProductDetail></ProductDetail>}
+        ></Route>
+        <Route path='/test' element={<Test/>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
