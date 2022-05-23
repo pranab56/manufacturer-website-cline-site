@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import BussinessSummary from '../BussinessSummary/BussinessSummary';
 import Footer from '../Footer/Footer';
 import Products from '../Products/Products';
 import Review from '../Review/Review';
@@ -16,8 +17,11 @@ const Home = () => {
 
     return (
         <div>
+            
             <Carousel></Carousel>
+            <BussinessSummary></BussinessSummary>
             <Products></Products>
+            
             <nav>
             <h1 className='text-3xl text-center mt-5 mb-5'>CUSTOMARS REVIEW</h1>
             <div className='grid lg:grid-cols-3 sm:grid-cols-1'>
