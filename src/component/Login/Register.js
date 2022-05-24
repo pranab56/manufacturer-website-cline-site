@@ -5,6 +5,7 @@ import auth from '../firebase.init';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Page/Loading';
 import { toast } from 'react-toastify';
+import useToken from '../../Hooks/useToken';
 
 
 const Register = () => {
@@ -19,8 +20,10 @@ const Register = () => {
   const [sendEmailVerification, verisending, verierror] = useSendEmailVerification(auth);
   // update korar jonno 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  const navigate=useNavigate()
  
+  const navigate=useNavigate()
+  const [token]=useToken(user || gUser)
+
   // from onsubmit
   const onSubmit =async data =>{
     await createUserWithEmailAndPassword(data.email,data.password)
@@ -30,7 +33,7 @@ const Register = () => {
     // update profile
      await updateProfile({ displayName:data.Name });
      
-     console.log('update done');
+    //  console.log('update done');
     };
    
 
@@ -48,8 +51,7 @@ const Register = () => {
     }
 
     // jodi GoogleUser thake taile dibe
-  if(user || gUser){
-    // console.log(user || gUser);
+  if(token){
     navigate('/home')
   }
     return (

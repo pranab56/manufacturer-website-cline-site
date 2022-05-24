@@ -11,7 +11,7 @@ const Heder = () => {
   const [user, loading, error] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
-   
+   localStorage.removeItem('accessToken')
   };
   if(loading){
     return <Loading></Loading>
@@ -83,7 +83,7 @@ const Heder = () => {
       </ul>
    
     </div>
-    <div className="navbar-end">
+    <div className="navbar-end lg:hidden">
     <label for="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"

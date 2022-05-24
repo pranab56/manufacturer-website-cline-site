@@ -17,6 +17,7 @@ import Test from './test';
 import { ToastContainer } from 'react-toastify';
 import MyOrder from './component/Dashboard/MyOrder';
 import MyReview from './component/Dashboard/MyReview';
+import AllUser from './component/Dashboard/AllUser';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
        <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
        <Route path='myreview' element={<MyReview></MyReview>}></Route>
+       <Route path='alluser' element={<AllUser></AllUser>}></Route>
         </Route>
         <Route path='/productdetails/:id' element={<RequireAuth>
           <ProductDetail></ProductDetail>

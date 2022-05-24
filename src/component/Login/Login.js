@@ -3,6 +3,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useToken from '../../Hooks/useToken';
 import auth from '../firebase.init';
 import Loading from '../Page/Loading';
 
@@ -14,6 +15,7 @@ const Login = () => {
   // react router
  const navigate=useNavigate();
  const location =useLocation();
+  const [token]=useToken(user || gUser)
  
  
  const from = location.state?.from?.pathname || "/";
@@ -36,7 +38,7 @@ const Login = () => {
     }
 
     // jodi GoogleUser thake taile dibe
-  if(user || gUser){
+  if(token){
     navigate(from, { replace: true })
     console.log(gUser);
   }
