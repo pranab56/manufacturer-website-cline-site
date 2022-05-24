@@ -1,27 +1,34 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { toast } from 'react-toastify';
 
 import auth from '../firebase.init';
 
 const OrderModal = ({product,setOrder}) => {
+  
     const [user] = useAuthState(auth);
-    const handleProductFrom=event=>{
+    
+    const handleOnSubmit=event=>{
       event.preventDefault()
-      const ProductName=product.name;
+      const ProductName=product?.name;
       const name=event.target.fullName.value;
-      const email=event.target.email.value;
+      const email=user.email
+      const address=event.target.address.value;
       const number=event.target.number.value;
       const quantity=event.target.quantity.value;
-      if(product.availablequantity<quantity ){
+      
+      const totalQuantity=product.availablequantity-product.orderquantity;
+      if(totalQuantity<quantity ){
        
        return toast.error('please input a Available quantity')
       
       }
+    
       else if(quantity<0){
-        return toast.error('place')
+        return toast.error('wrong input a quantity')
       }
-      const data={ProductName,name,email,number,quantity}
+      const data={ProductName,name,email,address,number,quantity}
       fetch('http://localhost:5000/order', {
         method: 'POST',
         headers: {
@@ -31,7 +38,7 @@ const OrderModal = ({product,setOrder}) => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data);
+        
         if(data.Success){
           toast.success('Your product ordered')
           
@@ -57,7 +64,7 @@ const OrderModal = ({product,setOrder}) => {
                 Account settings
               </h2>
   
-              <form onSubmit={handleProductFrom}>
+              <form onSubmit={handleOnSubmit}>
                 <div className="">
                   <div>
                     <input
@@ -95,13 +102,14 @@ const OrderModal = ({product,setOrder}) => {
                     <input
                       id="emailAddress"
                       autoComplete="off"
-                      name="email"
-                      
-                      
+                      name="address"
+                      placeholder='Address'
+                     required
                       type="text"
                       className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                     />
                   </div>
+        
                   <div>
                     <input
                       id="username"
@@ -109,20 +117,24 @@ const OrderModal = ({product,setOrder}) => {
                       autoComplete="off"
                       type="number"
                       placeholder="PHONE NUMBER"
+                     required
                       className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                     />
-                  </div>
+                    
+</div>
                   <div>
                     <input
                       id="username"
                       name="quantity"
                       autoComplete="off"
                       type="number"
+                      required
                       placeholder="quantity"
                       className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                     />
                   </div>
                  
+
                 </div>
   
                 <div className=" mt-6">

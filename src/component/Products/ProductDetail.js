@@ -56,6 +56,9 @@ const ProductDetail = (product) => {
             <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 dark:text-white">
               Available Quantity : {Products.availablequantity}
             </p>
+            <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 dark:text-white">
+              Order Quantity : {Products.orderquantity}
+            </p>
 
             <div class="lg:mt-11 mt-10">
               

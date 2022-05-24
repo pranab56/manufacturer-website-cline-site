@@ -69,11 +69,11 @@ const Heder = () => {
           Review
         </CustomLink>
       
-        {/* {
+       {
           user &&  <CustomLink className="mr-5" to={"/dashboard"}>
           DashBoard
         </CustomLink>
-        } */}
+        } 
  <p className='mr-2 font-bold'>{user?.displayName}</p>
       
 {user ? <CustomLink onClick={logout} to={'/'}>LogOut</CustomLink> : <CustomLink className="mr-5" to={"/login"}>
@@ -83,7 +83,25 @@ const Heder = () => {
       </ul>
    
     </div>
+    <div className="navbar-end">
+    <label for="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </label>
     
+    </div>
   </div>
   );
 };
