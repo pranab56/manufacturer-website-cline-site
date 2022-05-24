@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-
 import { useParams } from "react-router-dom";
-import Loading from "../Page/Loading";
-import ProductDetails from "./ProductDetails";
+import OrderModal from "./OrderModal";
 
-const ProductDetail = () => {
+const ProductDetail = (product) => {
   const { id } = useParams();
   const [Products, setproducts] = useState([]);
+  const [order,setOrder]=useState([])
   useEffect(() => {
     fetch(`http://localhost:5000/productDetails/${id}`)
       .then((res) => res.json())
@@ -16,6 +14,13 @@ const ProductDetail = () => {
 
   return (
     <div>
+        {
+    order && <OrderModal
+    product={Products}
+    order={order}
+    setOrder={setOrder}
+    ></OrderModal>
+  } 
       <div class="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
         <div class="flex justify-center items-center lg:ml-20 sm:ml-0 lg:flex-row flex-col gap-8">
           <div class="w-full sm:w-96 md:w-8/12 lg:w-6/12 items-center">
@@ -49,42 +54,18 @@ const ProductDetail = () => {
               $ {Products.price}
             </p>
             <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 mt-6 dark:text-white">
-              Available Quantity : $ {Products.availablequantity}
+              Available Quantity : {Products.availablequantity}
             </p>
 
             <div class="lg:mt-11 mt-10">
-              <div class="flex flex-row justify-between">
-                <p class="font-medium text-base leading-4 text-gray-600 ">
-                  Select quantity
-                </p>
-                <div class="flex">
-                  <span
-                    onclick="minus()"
-                    class="focus:outline-none dark:text-white focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-r-0 w-7 h-7 flex items-center justify-center pb-1"
-                  >
-                    -
-                  </span>
-                  <input
-                    id="counter"
-                    aria-label="input"
-                    class="border dark:text-white border-gray-300 dark:bg-transparent h-full text-center w-14 pb-1"
-                    type="text"
-                    value="1"
-                  />
-                  <span
-                    onclick="plus()"
-                    class="focus:outline-none dark:text-white focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer border border-gray-300 border-l-0 w-7 h-7 flex items-center justify-center pb-1"
-                  >
-                    +
-                  </span>
-                </div>
-              </div>
+              
               <hr class="bg-gray-200 w-full my-2" />
             </div>
 
-            <button class="focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full py-5 lg:mt-12 mt-6 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100">
+            <label htmlFor="Order-modal" onclick={()=>setOrder(product)} class="btn btn  focus:outline-none focus:ring-2 hover:bg-black focus:ring-offset-2 focus:ring-gray-800 font-medium text-base leading-4 text-white bg-gray-800 w-full mt-5 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100">
               Add to shopping bag
-            </button>
+            </label>
+           
           </div>
 
           <div class="w-full sm:w-96 md:w-8/12 lg:w-6/12 flex lg:flex-row flex-col sm:gap-6">

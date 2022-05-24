@@ -1,6 +1,8 @@
 import { createContext, useState } from 'react';
 import useProduct from '../../Hooks/useProduct';
+import OrderModal from './OrderModal';
 import Product from './Product';
+import ProductDetail from './ProductDetail';
 
 
 
@@ -9,7 +11,7 @@ import Product from './Product';
 const Products = () => {
   
    const [products]=useProduct()
-  
+   
    
    
 
@@ -27,8 +29,8 @@ const Products = () => {
                ></Product>)
             }
         </div>
-        
-           
+      
+    
           
        </nav>
        
