@@ -39,7 +39,7 @@ const OrderModal = ({product,setOrder}) => {
       .then(response => response.json())
       .then(data => {
         
-        if(data.Success){
+        if(data){
           toast.success('Your product ordered')
           
         }

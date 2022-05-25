@@ -3,15 +3,19 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
+import DeleteModal from './DeleteModal';
+import Order from './Order';
 
 
 const MyOrder = () => {
     const [orders,setorder]=useState([]);
+    const [deleteOrder,setDeleteOrder]=useState(null)
     
     const [user]=useAuthState(auth)
     const navigate=useNavigate()
     useEffect(()=>{
        if(user){
+
         fetch(`http://localhost:5000/order?email=${user.email}`,{
             method:'GET',
             headers:{
@@ -41,25 +45,31 @@ const MyOrder = () => {
       <tr>
         <th>SL</th>
         <th>Product Name</th>
-        <th>User Email</th>
         <th>Quantity</th>
+        <th>Delete</th>
+        <th>Payment</th>
       </tr>
     </thead>
     <tbody>
     {
-               orders.map((order,index)=><tr>
-                <th>{index+1}</th>
-                <td>{order.ProductName}</td>
-                <td>{order.email}</td>
-                <td>{order.quantity}</td>
-              </tr>)
-           }
-      
-     
+               
+        orders.map((order,index)=><Order 
+          key={order._id}
+          order={order}
+          index={index}
+          setDeleteOrder={setDeleteOrder}
+        ></Order>)
+    }
     </tbody>
   </table>
 </div>
-        
+        {
+          deleteOrder && <DeleteModal
+          deleteOrder={deleteOrder}
+          setDeleteOrder={setDeleteOrder}
+          ></DeleteModal>
+        }
+
        </div>
             
     );

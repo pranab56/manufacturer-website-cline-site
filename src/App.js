@@ -18,6 +18,8 @@ import { ToastContainer } from 'react-toastify';
 import MyOrder from './component/Dashboard/MyOrder';
 import MyReview from './component/Dashboard/MyReview';
 import AllUser from './component/Dashboard/AllUser';
+import RequireAdmin from './component/Login/RequireAdmin';
+import UpdateModal from './component/Dashboard/UpdateProfile/UpdateModal';
 
 
 function App() {
@@ -36,13 +38,13 @@ function App() {
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
        <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
        <Route path='myreview' element={<MyReview></MyReview>}></Route>
-       <Route path='alluser' element={<AllUser></AllUser>}></Route>
+       <Route path='alluser' element={<RequireAdmin><AllUser></AllUser></RequireAdmin>}></Route>
         </Route>
         <Route path='/productdetails/:id' element={<RequireAuth>
           <ProductDetail></ProductDetail>
         </RequireAuth>}
         ></Route>
-        <Route path='/test' element={<Test/>}></Route>
+        <Route path='updateModal' element={<UpdateModal></UpdateModal>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer></ToastContainer>

@@ -40,7 +40,7 @@ const Login = () => {
     // jodi GoogleUser thake taile dibe
   if(token){
     navigate(from, { replace: true })
-    console.log(gUser);
+    
   }
 
   

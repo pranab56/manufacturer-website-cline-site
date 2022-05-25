@@ -3,6 +3,8 @@ import { useQuery } from 'react-query';
 import Loading from '../Page/Loading';
 import User from './User';
 
+
+
 const AllUser = () => {
     const { isLoading, error, data:users,refetch } = useQuery('repoData', () =>
     fetch('http://localhost:5000/users',{
@@ -14,7 +16,7 @@ const AllUser = () => {
       res.json()
     )
   )
-  console.log(users);
+  
   
   if(isLoading){
       return <Loading></Loading>
@@ -44,6 +46,7 @@ const AllUser = () => {
         index={index}
         ></User>)
      }
+   
       
     </tbody>
   </table>

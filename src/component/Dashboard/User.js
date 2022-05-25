@@ -10,7 +10,11 @@ const User = ({user,refetch,index}) => {
               'authorization':`bearer ${localStorage.getItem('accessToken')}`
           }
         })
-        .then(res=>res.json())
+        .then(res=>{
+            if(res.status===403){
+                toast.error('faild to make to admin')
+            }
+            return res.json()})
         .then(data=>{
             if(data.modifiedCount>0){
                 toast.success('Congratulations you are now ADMIN');
