@@ -4,7 +4,7 @@ import Loading from '../Page/Loading';
 import User from './User';
 
 const AllUser = () => {
-    const { isLoading, error, data:users } = useQuery('repoData', () =>
+    const { isLoading, error, data:users,refetch } = useQuery('repoData', () =>
     fetch('http://localhost:5000/users',{
         method:'GET',
         headers:{
@@ -14,6 +14,7 @@ const AllUser = () => {
       res.json()
     )
   )
+  console.log(users);
   
   if(isLoading){
       return <Loading></Loading>
@@ -21,7 +22,7 @@ const AllUser = () => {
  
     return (
         <div>
-            <h4>All user : {users.length}</h4>
+            
             <div class="overflow-x-auto">
   <table class="table w-full">
     
@@ -36,9 +37,11 @@ const AllUser = () => {
     <tbody>
         
      {
-        users.map(user=><User
+        users.map((user,index)=><User
         key={user._id}
+        refetch={refetch}
         user={user}
+        index={index}
         ></User>)
      }
       
