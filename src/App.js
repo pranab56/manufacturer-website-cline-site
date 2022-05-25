@@ -20,6 +20,8 @@ import MyReview from './component/Dashboard/MyReview';
 import AllUser from './component/Dashboard/AllUser';
 import RequireAdmin from './component/Login/RequireAdmin';
 import UpdateModal from './component/Dashboard/UpdateProfile/UpdateModal';
+import Profile from './component/Dashboard/Profile';
+import AddProduct from './component/Dashboard/AddProduct/AddProduct';
 
 
 function App() {
@@ -36,15 +38,20 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+        <Route path='profile/updateProfile' element={<UpdateModal></UpdateModal>}></Route>
+        <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
+        <Route path='profile' element={<Profile></Profile>}></Route>
        <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
        <Route path='myreview' element={<MyReview></MyReview>}></Route>
+      
        <Route path='alluser' element={<RequireAdmin><AllUser></AllUser></RequireAdmin>}></Route>
         </Route>
         <Route path='/productdetails/:id' element={<RequireAuth>
           <ProductDetail></ProductDetail>
+         
         </RequireAuth>}
         ></Route>
-        <Route path='updateModal' element={<UpdateModal></UpdateModal>}></Route>
+       
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer></ToastContainer>
