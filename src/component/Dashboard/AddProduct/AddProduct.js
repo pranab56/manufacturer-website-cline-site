@@ -17,9 +17,10 @@ const AddProduct = () => {
   const imageStorageKey='332c4fd76bcbedab8932e57f1538543b';
   const onSubmit =(data) => {
       
-      const image=data.image[0];
+      const img=data.img[0];
+      
       const formData=new FormData();
-      formData.append('image',image)
+      formData.append('image',img)
       const url=`https://api.imgbb.com/1/upload?key=${imageStorageKey}`
       fetch(url,{
           method:'POST',
@@ -28,14 +29,14 @@ const AddProduct = () => {
       .then(res=>res.json())
       .then(result=>{
        if(result.success){
-        const image=result.data.url;
+        const img=result.data.url;
         const updateUser={
           name:data.product,
           description:data.description,
           price:data.price,
           orderquantity:data.orderquantity,
           availableauantity:data.availableauantity,
-          image:image
+          img:img
       }
       fetch('http://localhost:5000/product', {
   method: 'POST', // or 'PUT'
@@ -46,8 +47,10 @@ const AddProduct = () => {
 })
 .then(response => response.json())
 .then(data => {
-  
-console.log(data);
+  if(data){
+      toast('Successfully Product Added')
+    navigate('/dashboard')
+  }
     
 
 })
@@ -171,7 +174,7 @@ console.log(data);
                 type="file"
                 placeholder="Your Image"
                 // react from hooks theke vailded kora
-                {...register("image", {
+                {...register("img", {
                   required: {
                     value: true,
                     message: "Image is required",

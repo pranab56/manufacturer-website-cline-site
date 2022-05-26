@@ -1,13 +1,29 @@
-import useReview from '../../Hooks/useReview';
+import { useQuery } from 'react-query';
+
 import BussinessSummary from '../BussinessSummary/BussinessSummary';
 import Footer from '../Footer/Footer';
+import Loading from '../Page/Loading';
 import Products from '../Products/Products';
-import Reviews from '../Review/Reviews';
+import TotalReview from '../Review/TotalReview';
+
+
 
 import Carousel from './Carousel';
 
 const Home = () => {
-    const [reviews]=useReview();
+    const { isLoading, error, data:reviews } = useQuery('repoData', () =>
+    fetch('http://localhost:5000/review',{
+      method:'GET',
+      headers:{
+          'authorization':`bearer ${localStorage.getItem('accessToken')}`
+      }
+  }).then(res =>res.json()
+    )
+  )
+  
+  if(isLoading){
+      return <Loading></Loading>
+  }
     return (
         <div>
             
@@ -19,12 +35,12 @@ const Home = () => {
             <h1 className='text-3xl text-center mt-5 mb-5'>CUSTOMARS REVIEW</h1>
             <div className='grid lg:grid-cols-3 sm:grid-cols-1'>
             
-            {
-                reviews.slice(1,4).map(review=><Reviews
-                key={review.id}
-                review={review}
-                ></Reviews>)
-            }
+          {
+            reviews?.map(review=><TotalReview
+            key={review._id}
+            review={review}
+            ></TotalReview>)
+          }
         </div>
         </nav>
           <Footer></Footer>

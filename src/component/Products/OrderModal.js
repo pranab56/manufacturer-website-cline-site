@@ -12,6 +12,7 @@ const OrderModal = ({product,setOrder}) => {
     const handleOnSubmit=event=>{
       event.preventDefault()
       const ProductName=product?.name;
+      const price=product?.price
       const name=event.target.fullName.value;
       const email=user.email
       const address=event.target.address.value;
@@ -28,7 +29,7 @@ const OrderModal = ({product,setOrder}) => {
       else if(quantity<0){
         return toast.error('wrong input a quantity')
       }
-      const data={ProductName,name,email,address,number,quantity}
+      const data={ProductName,price,name,email,address,number,quantity}
       fetch('http://localhost:5000/order', {
         method: 'POST',
         headers: {
@@ -72,6 +73,16 @@ const OrderModal = ({product,setOrder}) => {
                       name="productName"
                       disabled
                       value={product?.name}
+                      type="text"
+                      className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      id="price"
+                      name="price"
+                      disabled
+                      value={product?.price}
                       type="text"
                       className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                     />

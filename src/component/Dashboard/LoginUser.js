@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const User = ({user,refetch,index}) => {
+const LoginUser = ({user,refetch,index}) => {
     const {email,role}=user;
     const makeAdmin=()=>{
         fetch(`http://localhost:5000/users/admin/${email}`,{
@@ -11,12 +11,12 @@ const User = ({user,refetch,index}) => {
           }
         })
         .then(res=>{
-            if(res.status===403){
+            if(res.status===401 || res.status===403){
                 toast.error('faild to make to admin')
             }
             return res.json()})
         .then(data=>{
-            if(data.modifiedCount>0){
+            if(data?.modifiedCount>0){
                 toast.success('Congratulations you are now ADMIN');
                 refetch()
             }
@@ -38,4 +38,4 @@ const User = ({user,refetch,index}) => {
     );
 };
 
-export default User;
+export default LoginUser;

@@ -1,19 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 
 const Order = ({order,index ,setDeleteOrder}) => {
-    const {ProductName,quantity,email}=order;
+ 
    
-
+console.log(order);
     return (
         <tr>
                 <th>{index+1}</th>
-                <td>{ProductName}</td>
-                <td>{quantity}</td>
+                <td>{order.ProductName}</td>
+                <td>{order.quantity}</td>
               
-                <td><label onClick={()=>setDeleteOrder(order)} for="delete-modal" class="btn btn ">DELETE ORDER</label></td>
-                    <td><button className='btn btn'>PAYMENT</button></td>
+                <td><label onClick={()=>setDeleteOrder(order)} for="delete-modal" class="btn btn-danger ">DELETE ORDER</label></td>
+                    <td>
+                        {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-success'>Pay</button></Link>}
+                        {(order.price && order.paid) && <span className='text-success'>paid</span>}
+                    </td>
                 </tr> 
     );
 };

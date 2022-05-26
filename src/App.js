@@ -22,6 +22,8 @@ import RequireAdmin from './component/Login/RequireAdmin';
 import UpdateModal from './component/Dashboard/UpdateProfile/UpdateModal';
 import Profile from './component/Dashboard/Profile';
 import AddProduct from './component/Dashboard/AddProduct/AddProduct';
+import AddReview from './component/Dashboard/AddReview';
+import Payment from './component/Dashboard/Payment';
 
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
         <Route path='profile/updateProfile' element={<UpdateModal></UpdateModal>}></Route>
         <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
+        <Route path='payment/:id' element={<Payment></Payment>}></Route>
         <Route path='profile' element={<Profile></Profile>}></Route>
        <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
        <Route path='myreview' element={<MyReview></MyReview>}></Route>

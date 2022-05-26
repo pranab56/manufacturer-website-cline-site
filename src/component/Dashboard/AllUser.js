@@ -1,26 +1,29 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Page/Loading';
-import User from './User';
+import LoginUser from './LoginUser';
+
+
 
 
 
 const AllUser = () => {
-    const { isLoading, error, data:users,refetch } = useQuery('repoData', () =>
+    const { isLoading, error, data:users ,refetch } = useQuery('repoData', () =>
     fetch('http://localhost:5000/users',{
         method:'GET',
         headers:{
             'authorization':`bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res =>
-      res.json()
+    }).then(res =>res.json()
     )
+ 
   )
-  
-  
   if(isLoading){
-      return <Loading></Loading>
-  }
+    return <Loading></Loading>
+}
+  
+  
+  
  
     return (
         <div>
@@ -37,16 +40,15 @@ const AllUser = () => {
       </tr>
     </thead>
     <tbody>
-        
-     {
-        users.map((user,index)=><User
-        key={user._id}
-        refetch={refetch}
-        user={user}
-        index={index}
-        ></User>)
-     }
-   
+  
+  {
+    users?.map((user,index)=><LoginUser
+    key={user?._id}
+    refetch={refetch}
+    user={user}
+    index={index}
+    ></LoginUser>)
+  }
       
     </tbody>
   </table>
