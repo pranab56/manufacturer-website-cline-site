@@ -32,35 +32,6 @@ const MyOrder = () => {
   }
 
 
-
-
-
-
-
-
-
-    // useEffect(()=>{
-    //    if(user){
-
-    //     fetch(`http://localhost:5000/order?email=${user.email}`,{
-    //         method:'GET',
-    //         headers:{
-    //             'authorization':`bearer ${localStorage.getItem('accessToken')}`
-    //         }
-    //     })
-    //     .then(res=>{
-    //       console.log(res)
-    //       if(res.status===401 || res.status===403){
-    //         signOut(auth)
-    //         localStorage.removeItem('accessToken')
-    //       navigate('/home')
-    //       }
-    //      return res.json()
-    //     })
-    //     .then(data=>{
-    //       setorder(data)})
-    //    }
-    // },[user])
   
     return (
        <div>

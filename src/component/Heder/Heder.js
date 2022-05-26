@@ -62,11 +62,15 @@ const Heder = () => {
           Shop
         </CustomLink>
         <CustomLink className="mr-5" to={"/about"}>
-          About
+          Blogs
         </CustomLink>
       
         <CustomLink className="mr-5" to={"/review"}>
           Review
+        </CustomLink>
+      
+        <CustomLink className="mr-5" to={"/portfolio"}>
+          Portfolio
         </CustomLink>
       
        {

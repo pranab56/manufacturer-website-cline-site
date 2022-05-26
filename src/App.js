@@ -26,6 +26,7 @@ import AddReview from './component/Dashboard/AddReview';
 import Payment from './component/Dashboard/Payment';
 import AllProduct from './component/Dashboard/AllOrder';
 import AllOrder from './component/Dashboard/AllOrder';
+import Portfolio from './component/Portfolio/Portfolio';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/shop' element={<Shop></Shop>}></Route>
         <Route path='review' element={<Review></Review>}></Route>

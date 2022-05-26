@@ -14,7 +14,7 @@ const CheckoutForm = ({order}) => {
   
 
   useEffect(()=>{
-    fetch('http://localhost:5000/createPaymentIntent',{
+    fetch('http://localhost:5000/create-Payment-Intent',{
       method:'POST',
       headers:{
         'content type': 'application/json',
@@ -112,7 +112,7 @@ const CheckoutForm = ({order}) => {
           },
         }}
       />
-      <button className='btn btn-xs btn-success' type="submit" disabled={!stripe || !clientSecret}>
+      <button className='btn btn-xs btn-success' type="submit" disabled={!stripe || !clientSecret || Successs}>
         Pay
       </button>
     </form>

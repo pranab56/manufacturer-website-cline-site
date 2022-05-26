@@ -15,25 +15,27 @@ const Payment = () => {
             headers:{
                 'authorization':`bearer ${localStorage.getItem('accessToken')}`
             }
-    }).then((res) => res.json())
+    }).then(res => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
   
   return (
-    <div>
+    <div className="flex align-middle justify-center">
+      <div className="w-2/6">
    
-          <div class="card w-50 bg-base-100 shadow-xl my-10">
-            <div class="card-body">
-              <h2 class="card-title">Pay for {order.ProductName}</h2>
-              <p>Total Quantity : ${order.quantity} and price : ${order.price}</p>
-              <p>Total Price : ${order.quantity * order.price}</p>
-             
-            </div>
-          </div>
-          <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-            <div class="card-body">
+   <div class="card bg-base-100 shadow-2xl my-10">
+     <div class="card-body">
+       <h2 class="card-title">Pay for {order.ProductName}</h2>
+       <p>Total Quantity : ${order.quantity} and price : ${order.price}</p>
+       <p>Total Price : ${order.quantity * order.price}</p>
+      
+     </div>
+   </div>
+   <div class="card px-4 py-4 shadow-2xl bg-base-100">
+     <div class="card-body">
+    </div>
             <Elements stripe={stripePromise}>
     <CheckoutForm order={order}/>
   </Elements>
