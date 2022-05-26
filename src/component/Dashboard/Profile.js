@@ -1,15 +1,36 @@
-import React from 'react';
+import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import auth from '../firebase.init';
 import Loading from '../Page/Loading';
 
 const Profile = () => {
-    const { isLoading, error, data:users } = useQuery('Profile', () =>
-     fetch('http://localhost:5000/profile').then(res =>res.json()))
+    const [users,setUsers]=useState([])
+   const [user]=useAuthState(auth);
+   const navigate=useNavigate()
+  useEffect(()=>{
+    if(user){
+        fetch(`http://localhost:5000/profile?email=${user.email}`,{
+            method:'GET',
+            headers:{
+                'authorization':`bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res=>{
+            console.log(res)
+              if(res.status===401 || res.status===403){
+                signOut(auth)
+                localStorage.removeItem('accessToken')
+              navigate('/home')
+              }
+           return res.json()
+        })
+        .then(data=>setUsers(data))
+       }
+  },[user])
    
-   if(isLoading){
-       return <Loading></Loading>
-   }
     return (
         
            <div className="flex flex-col justify-end mt-10  shadow-2xl rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">

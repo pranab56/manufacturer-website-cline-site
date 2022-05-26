@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DeleteModal = ({deleteOrder,setDeleteOrder}) => {
+const DeleteModal = ({deleteOrder,setDeleteOrder,refetch}) => {
     const {email}=deleteOrder;
     const handleDeleteButton=()=>{
         fetch(`http://localhost:5000/order/${email}`,{
@@ -14,11 +14,11 @@ const DeleteModal = ({deleteOrder,setDeleteOrder}) => {
             console.log(data);
             if(data.deletedCount){
                 setDeleteOrder(null)
-               
+                refetch()
             }
-            
+           
         })
-        deleteOrder("")
+       
     }
     return (
         <div>
