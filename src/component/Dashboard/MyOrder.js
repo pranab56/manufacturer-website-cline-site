@@ -18,7 +18,7 @@ const MyOrder = () => {
 
 
     const { isLoading, error, data:orders,refetch } = useQuery('MyOrder', () =>
-    fetch(`http://localhost:5000/order?email=${user.email}`,{
+    fetch(`https://protected-headland-11600.herokuapp.com/order?email=${user.email}`,{
       method:'GET',
             headers:{
                 'authorization':`bearer ${localStorage.getItem('accessToken')}`
@@ -36,7 +36,7 @@ const MyOrder = () => {
     return (
        <div>
 
-<div class="overflow-x-auto">
+<div class="lg:overflow-x-auto sm:overflow-x-auto lg:w-auto sm:w-auto">
   <table class="table w-full">
     
     <thead>
@@ -48,18 +48,19 @@ const MyOrder = () => {
         <th>Payment</th>
       </tr>
     </thead>
-    <tbody>
+    {/* <tbody> */}
     {
                
-        orders.map((order,index)=><Order 
+        orders?.map((order,index)=><Order 
           key={order._id}
           order={order}
           index={index}
          
           setDeleteOrder={setDeleteOrder}
         ></Order>)
+
     }
-    </tbody>
+    {/* </tbody> */}
   </table>
 </div>
         {

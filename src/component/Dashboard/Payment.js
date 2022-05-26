@@ -10,7 +10,7 @@ const stripePromise =loadStripe('pk_test_51L3Ou8C3WzdUW5RgIQSy5VfeJFAkZv2csgDEFm
 const Payment = () => {
   const { id } = useParams();
   const { isLoading, error, data:order } = useQuery(("payment", id), () =>
-    fetch(`http://localhost:5000/order/${id}`,{
+    fetch(`https://protected-headland-11600.herokuapp.com/order/${id}`,{
         method:'GET',
             headers:{
                 'authorization':`bearer ${localStorage.getItem('accessToken')}`
@@ -34,13 +34,14 @@ const Payment = () => {
      </div>
    </div>
    <div class="card px-4 py-4 shadow-2xl bg-base-100">
-     <div class="card-body">
-    </div>
-            <Elements stripe={stripePromise}>
+   <Elements stripe={stripePromise}>
     <CheckoutForm order={order}/>
   </Elements>
+    </div>
+    
+            
 
-            </div>
+          
           </div>
         </div>
    

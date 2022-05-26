@@ -13,7 +13,6 @@ const About = () => {
     const handleSearch = (e) => {
         e.preventDefault()
         const SearchText = e.target.product.value;
-        console.log(SearchText)
         products.map(product => {
 
             if (product.name === SearchText) {

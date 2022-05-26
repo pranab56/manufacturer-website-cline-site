@@ -13,7 +13,6 @@ const Review = () => {
             }
         }).then(res =>res.json())
   )
-  console.log(reviews);
   
   if(isLoading){
       return <Loading></Loading>

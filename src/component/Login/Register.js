@@ -33,7 +33,6 @@ const Register = () => {
     // update profile
      await updateProfile({ displayName:data.Name });
      
-    //  console.log('update done');
     };
    
 

@@ -9,7 +9,7 @@ import LoginUser from './LoginUser';
 
 const AllUser = () => {
     const { isLoading, error, data:users ,refetch } = useQuery('repoData', () =>
-    fetch('http://localhost:5000/users',{
+    fetch('https://protected-headland-11600.herokuapp.com/users',{
         method:'GET',
         headers:{
             'authorization':`bearer ${localStorage.getItem('accessToken')}`

@@ -7,7 +7,7 @@ const ProductDetail = (product) => {
   const [Products, setproducts] = useState([]);
   const [order,setOrder]=useState([])
   useEffect(() => {
-    fetch(`http://localhost:5000/productDetails/${id}`)
+    fetch(`https://protected-headland-11600.herokuapp.com/productDetails/${id}`)
       .then((res) => res.json())
       .then((data) => setproducts(data));
   }, [id]);

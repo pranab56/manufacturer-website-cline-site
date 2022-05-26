@@ -6,7 +6,7 @@ const useToken=user=>{
         const email=user?.user.email;
         const currentUser={email:email};
         if(email){
-            fetch(`http://localhost:5000/users/${email}`,{
+            fetch(`https://protected-headland-11600.herokuapp.com/users/${email}`,{
                 method:'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -15,7 +15,6 @@ const useToken=user=>{
                 })
                 .then(response => response.json())
                 .then(data => {
-                  console.log('Success:', data);
                   const accessToken=data.token;
                   
                   localStorage.setItem('accessToken',accessToken)

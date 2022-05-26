@@ -5,7 +5,7 @@ import Loading from '../Page/Loading';
 
 const AllOrder = () => {
     const { isLoading, error, data:totalOrder,refetch } = useQuery('TotalOrder', () =>
-    fetch('http://localhost:5000/order',{
+    fetch('https://protected-headland-11600.herokuapp.com/order',{
       method:'GET',
             headers:{
                 'authorization':`bearer ${localStorage.getItem('accessToken')}`

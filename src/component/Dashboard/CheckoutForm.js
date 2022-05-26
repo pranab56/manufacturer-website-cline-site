@@ -14,10 +14,10 @@ const CheckoutForm = ({order}) => {
   
 
   useEffect(()=>{
-    fetch('http://localhost:5000/create-Payment-Intent',{
+    fetch('https://protected-headland-11600.herokuapp.com/create-Payment-Intent',{
       method:'POST',
       headers:{
-        'content type': 'application/json',
+        'content-type': 'application/json',
         'authorization':`bearer ${localStorage.getItem('accessToken')}`
         
     },
@@ -46,8 +46,8 @@ const CheckoutForm = ({order}) => {
     });
     
       setCurdError(error?.message || "")
-      setSuccess('')
-      setProcessing(true)
+      setSuccess('');
+      setProcessing(true);
       const {paymentIntent, error:intentError} = await stripe.confirmCardPayment(
         clientSecret,
         {
@@ -68,7 +68,6 @@ const CheckoutForm = ({order}) => {
    else{
      setCurdError('');
      setTransactionId(paymentIntent.id)
-     console.log(paymentIntent);
      setSuccess('congrats ! your payment is succuss')
 
      const payment={
@@ -77,10 +76,10 @@ const CheckoutForm = ({order}) => {
 
      }
     //  
-    fetch(`http://localhost:5000/order/${_id}`,{
+    fetch(`https://protected-headland-11600.herokuapp.com/order/${_id}`,{
       method:'PATCH',
       headers:{
-        'content type': 'application/json',
+        'content-type': 'application/json',
         'authorization':`bearer ${localStorage.getItem('accessToken')}`
         
     },
@@ -88,7 +87,6 @@ const CheckoutForm = ({order}) => {
     }).then(res=>res.json())
     .then(data=>{
       setProcessing(false)
-      console.log(data);
     })
    }
 

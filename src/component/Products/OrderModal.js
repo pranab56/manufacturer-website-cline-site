@@ -30,7 +30,7 @@ const OrderModal = ({product,setOrder}) => {
         return toast.error('wrong input a quantity')
       }
       const data={ProductName,price,name,email,address,number,quantity}
-      fetch('http://localhost:5000/order', {
+      fetch('https://protected-headland-11600.herokuapp.com/order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

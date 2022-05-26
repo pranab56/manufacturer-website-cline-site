@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const TotalReview = ({review}) => {
-    console.log(review);
     const {name,description,Ratings,address,img}=review;
     return (
         <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">

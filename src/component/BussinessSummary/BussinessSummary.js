@@ -4,11 +4,12 @@ import { FlagIcon,  LibraryIcon,  PresentationChartLineIcon,  ThumbUpIcon } from
 
 const BussinessSummary = () => {
     return (
-        <nav>
+        <nav className='mt-40 lg:mt-0'>
             <p className='text-center text-3xl font-bold mb-12'>BUSINESS SUMMARY</p>
             <div className='flex justify-around mb-20'>
             
-            <div>
+           <div className='grid grid-cols-2 gap-12 lg:gap-40 lg:grid-cols-4'>
+           <div>
             <FlagIcon className='text-green-400' width={100}></FlagIcon>
              <p className='font-bold text-2xl ml-3'><CountUp duration={10} end={100} />+</p>
              <p className='font-bold text-green-400 ml-2'>Country</p>
@@ -30,6 +31,7 @@ const BussinessSummary = () => {
                 <p className='font-bold text-green-400 ml-3'>FeedBacks</p>
             </div>
             
+           </div>
              
          </div>
         </nav>

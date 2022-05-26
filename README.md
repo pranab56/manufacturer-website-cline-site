@@ -1,4 +1,28 @@
 # Getting Started with Create React App
+# Express Electrical parts (Assignment 12)
+
+## [Live Link](https://tires-store.web.app/)
+
+Live Link: [https://tires-store.web.app/](https://tires-store.web.app/)
+
+### `Website Introduction`
+
+1. create react app `npx create-react-app`
+2. then , install
+   `react-tailwind`
+   `react-router-hooks`
+   `react-router`
+   `firebase`
+   `Daisy Khalamoni`
+   `react-query`
+   `react-toastify`
+   etc....
+3. Many components create and fetch data.....then ,
+4. login and signup create and
+5. deploy my website .......
+
+`Finally Assignment Done`
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

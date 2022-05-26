@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const Order = ({order,index ,setDeleteOrder}) => {
  
    
-console.log(order);
     return (
         <tr key={order._id}>
                 <th>{index+1}</th>

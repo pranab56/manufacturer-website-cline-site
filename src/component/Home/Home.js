@@ -12,7 +12,7 @@ import Carousel from './Carousel';
 
 const Home = () => {
     const { isLoading, error, data:reviews } = useQuery('repoData', () =>
-    fetch('http://localhost:5000/review',{
+    fetch('https://protected-headland-11600.herokuapp.com/review',{
       method:'GET',
       headers:{
           'authorization':`bearer ${localStorage.getItem('accessToken')}`

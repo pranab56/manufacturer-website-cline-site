@@ -38,7 +38,7 @@ const AddProduct = () => {
           availableauantity:data.availableauantity,
           img:img
       }
-      fetch('http://localhost:5000/product', {
+      fetch('https://protected-headland-11600.herokuapp.com/product', {
   method: 'POST', // or 'PUT'
   headers: {
     'Content-Type': 'application/json',

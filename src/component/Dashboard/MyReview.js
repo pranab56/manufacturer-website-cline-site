@@ -37,7 +37,7 @@ const MyReview = () => {
           address:data.address,
           img:img
       }
-      fetch('http://localhost:5000/review', {
+      fetch('https://protected-headland-11600.herokuapp.com/review', {
   method: 'POST', // or 'PUT'
   headers: {
     'Content-Type': 'application/json',
@@ -46,7 +46,6 @@ const MyReview = () => {
 })
 .then(response => response.json())
 .then(data => {
-    console.log(data);
   if(data){
       toast('ThankYou Sir')
     navigate('/dashboard')

@@ -3,7 +3,7 @@ import React from 'react';
 const DeleteModal = ({deleteOrder,setDeleteOrder,refetch}) => {
     const {email}=deleteOrder;
     const handleDeleteButton=()=>{
-        fetch(`http://localhost:5000/order/${email}`,{
+        fetch(`https://protected-headland-11600.herokuapp.com/order/${email}`,{
             method:'DELETE',
             headers:{
                 'authorization':`bearer ${localStorage.getItem('accessToken')}`
@@ -11,7 +11,6 @@ const DeleteModal = ({deleteOrder,setDeleteOrder,refetch}) => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
             if(data.deletedCount){
                 setDeleteOrder(null)
                 refetch()
