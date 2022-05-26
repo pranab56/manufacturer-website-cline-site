@@ -10,7 +10,7 @@ const CheckoutForm = ({order}) => {
   const [transactionId,setTransactionId]=useState('');
   const [clientSecret,setClientSecret]=useState('');
 
-  const {price,email,name}=order;
+  const {_id,price,email,name}=order;
   
 
   useEffect(()=>{
@@ -70,9 +70,24 @@ const CheckoutForm = ({order}) => {
      setTransactionId(paymentIntent.id)
      console.log(paymentIntent);
      setSuccess('congrats ! your payment is succuss')
+
+     const payment={
+       order:_id,
+       transactionId:paymentIntent.id
+
+     }
     //  
-    fetch('').then(res=>res.json())
+    fetch(`http://localhost:5000/order/${_id}`,{
+      method:'PATCH',
+      headers:{
+        'content type': 'application/json',
+        'authorization':`bearer ${localStorage.getItem('accessToken')}`
+        
+    },
+    body:JSON.stringify(payment)
+    }).then(res=>res.json())
     .then(data=>{
+      setProcessing(false)
       console.log(data);
     })
    }
